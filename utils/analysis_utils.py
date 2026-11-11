@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 # É necessário instalar o pacote jinja2 (pip install jinja2)
 def df_summary_report(df: pd.DataFrame) -> pd.DataFrame:
@@ -91,4 +92,41 @@ def df_summary_report(df: pd.DataFrame) -> pd.DataFrame:
     )
     return styled
 #----------------------------------------------------------------------------------------------------------------------
+def plot_click(df):
+    """
+    Gera um gráfico de barras comparando a contagem de cliques e não cliques
+    entre os grupos de controle e experimental de um Teste A/B.
+    
+    Parâmetros
+    ----------
+    df : pandas.DataFrame
+        DataFrame contendo os dados do experimento.
 
+    Retorno
+    -------
+        Exibe o gráfico utilizando Matplotlib.
+    """
+
+    ordem = ["con", "exp"]
+    rotulos = {"con": "Controle", "exp": "Experimental"}
+
+    fig, ax = plt.subplots(figsize=(7, 5))
+    sns.countplot(data=df, x="group", hue="click", order = ordem,
+                palette={0: "#D92525", 1: "#3D5A73"}, ax=ax)
+
+    ax.set_xticks(range(len(ordem)))
+    ax.set_xticklabels([rotulos[g] for g in ordem])
+    ax.set_title("Contagem de Cliques - Controle vs. Experimental", weight="bold")
+    ax.set_xlabel("")
+    ax.set_ylabel("Contagem")
+    ax.legend(title="Clicou?", labels=["Não", "Sim"])
+
+
+    totais = df["group"].value_counts()
+    # ax.containers[0] = barras de click=0 (uma por grupo); ax.containers[1] = click=1
+    for container in ax.containers:
+        for barra, grupo in zip(container, ordem):
+            pct = barra.get_height()/totais[grupo]*100
+            ax.annotate(f"{pct:.1f}%", (barra.get_x() + barra.get_width()/2, barra.get_height()),
+                        ha="center", va="bottom", fontsize=10)
+    plt.show()
