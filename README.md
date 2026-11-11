@@ -40,7 +40,7 @@ A taxa de cliques (CTR) mede a porcentagem de usuários que clicam em um botão 
 
 Por fim, os resultados deste teste ajudarão a decidir se o novo botão deve ser implementado na página inicial.
 
-![banner](img/banner.png)
+<img src="img/banner.png" alt="banner" width="900">
 
 # 4. Parâmetros experimentais
 Os três experimentos utilizam os mesmos parâmetros, estabelecidos antes da observação dos resultados.
