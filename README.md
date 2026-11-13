@@ -30,7 +30,7 @@ Embora compartilhem uma metodologia geral, os experimentos apresentam particular
 - `utils/` - arquivos com funções auxiliares.
 
 # 3. Problema de Negócio
-Você trabalha no departamento de ciência de dados de um empresa que oferece cursos, bootcamps e suporte de carreira para ajudar ajudar alunos a conquistarem um vaga na área de dados. Um belo dia você é designado para realizar um Teste AB, o objetivo é identificar qual versão do botão de chamada para ação (CTA) na página inicial da empresa apresenta um desempenho superior, com base na métrica de taxa de cliques (CTR, na sigla em inglês):
+Você trabalha no departamento de ciência de dados de um empresa que oferece cursos, bootcamps e suporte de carreira para ajudar alunos a conquistarem um vaga na área de dados. Um belo dia você é designado para realizar um Teste AB, o objetivo é identificar qual versão do botão de chamada para ação (CTA) na página inicial da empresa apresenta um desempenho superior, com base na métrica de taxa de cliques (CTR, na sigla em inglês):
 
 - **Grupo de Controle - (Versão A)** Exposto ao botão de CTA atual ("Garantir teste gratuito").
 - **Grupo Experimental - (Versão B):** Exposto ao novo botão de CTA, de caráter mais geral ("Inscreva-se agora").
