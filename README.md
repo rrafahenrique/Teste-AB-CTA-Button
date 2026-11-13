@@ -1,4 +1,4 @@
-![Badge-Em Andamento](https://img.shields.io/badge/Status-Em_Andamento-orange) ![Bagde-Version](https://img.shields.io/badge/Version-1.0-blue)
+![Badge-Em Andamento](https://img.shields.io/badge/Status-Concluído-green) ![Bagde-Version](https://img.shields.io/badge/Version-1.0-blue)
 
 
 # 1. Sobre o projeto
@@ -13,22 +13,21 @@ Os experimentos foram construídos para abordar três situações fundamentais:
 Todos os cenários utilizam os mesmos parâmetros estatísticos, definidos previamente à análise dos resultados, garantindo consistência metodológica e evitando ajustes orientados pelos resultados observados.
 
 # 2. Metodologia de análise
-De maneira geral, os experimentos seguem uma estrutura de análise que contempla:
+Os experimentos seguem uma metodologia padronizada, composta por etapas que orientam a execução e a interpretação dos testes A/B. De maneira geral, o processo contempla:
+- **Definição do cenário experimental**: identificação das variantes e da métrica que será avaliada.
+- **Formulação das hipóteses**: estabelecimento das hipóteses nula (H₀) e alternativa (H₁).
+- **Validação dos dados**: verificação da consistência dos registros e da distribuição dos participantes entre os grupos.
+- **Análise das métricas**: cálculo e comparação das taxas de cliques observadas.
+- **Inferência estatística**: aplicação dos testes estatísticos adequados a cada cenário.
+- **Interpretação dos resultados**: avaliação do p-valor, teste z, dos intervalos de confiança e da significância estatística e prática.
+- **Conclusão**: interpretação dos resultados e suas possíveis implicações para a tomada de decisão.
 
-1. Definição do cenário experimental.
-2. Formulação das hipóteses estatísticas.
-3. Verificação da distribuição dos participantes, quando aplicável.
-4. Cálculo das taxas de conversão.
-5. Aplicação dos testes estatísticos pertinentes.
-6. Análise do p-valor e do intervalo de confiança.
-7. Interpretação da significância estatística e prática.
-8. Elaboração da conclusão do experimento.
+Embora compartilhem uma metodologia geral, os experimentos apresentam particularidades que exigem análises específicas, conforme descrito na próxima seção.
 
 ## 2.1 Estrutura do dataset
-- `data-raw/` - datasets (CSV)
-- `notebooks/` - notebooks de análise (.ipynb)
-- `utils/` - funções auxiliares
-
+- `data-raw/` - datasets (CSV);
+- `notebooks/` - notebooks de análise (.ipynb);
+- `utils/` - arquivos com funções auxiliares.
 
 # 3. Problema de Negócio
 Você trabalha no departamento de ciência de dados de um empresa que oferece cursos, bootcamps e suporte de carreira para ajudar ajudar alunos a conquistarem um vaga na área de dados. Um belo dia você é designado para realizar um Teste AB, o objetivo é identificar qual versão do botão de chamada para ação (CTA) na página inicial da empresa apresenta um desempenho superior, com base na métrica de taxa de cliques (CTR, na sigla em inglês):
@@ -52,50 +51,38 @@ Os três experimentos utilizam os mesmos parâmetros, estabelecidos antes da obs
 | Efeito mínimo detectável (MDE) | 0,02 | Menor diferença absoluta considerada relevante para o negócio, equivalente a 2 pontos percentuais. |
 
 ## 4.1 Interpretação dos parâmetros
-
 - **α = 0,05:** estabelece um limite de 5% para o risco de falso positivo.
 - **Poder = 0,80:** estabelece uma probabilidade de 80% de detectar o efeito definido no planejamento, caso ele exista.
-- **MDE = 0,02:** representa uma diferença absoluta de 2 pontos percentuais entre as taxas de conversão das variantes.
+- **MDE = 0,02:** representa uma diferença absoluta de 2 pontos percentuais entre as taxas de cliques das variantes.
 
 Esses parâmetros orientam o planejamento e a interpretação dos experimentos e devem permanecer constantes entre os cenários.
 
 # 5. Cenários analisados
-
 O projeto contempla três cenários, cada um desenvolvido para demonstrar uma situação específica encontrada na prática de experimentação A/B.
 
-| Cenário | Arquivo | Taxas de conversão esperadas | Objetivo |
+| Cenário | Arquivo | Taxas de cliques esperadas | Objetivo |
 |---|---|---|---|
 | 1 | `cenario1-vitoria_clara` | 20% vs. 22% | Demonstrar um efeito estatisticamente significativo. |
 | 2 | `cenario2-sem_efeito` | 20% vs. 20% | Demonstrar a não rejeição de H₀ e explorar o poder estatístico. |
 | 3 | `cenario4-srm` | 20% vs. 22%, com divisão 55/45 | Demonstrar a identificação de Sample Ratio Mismatch (SRM). |
 
-Todos os cenários são explorados os seguintes tópicos:
-- Formulação das hipóteses estatísticas.
-- Comparação das taxas de conversão.
-- Aplicação do teste de hipótese.
-- Interpretação do p-valor.
-- Intervalo de confiança.
-- Avaliação da significância estatística e prática.
-- Conceito de Sample Ratio Mismatch.
-- Verificação da proporção de participantes entre os grupos.
-- Aplicação do teste qui-quadrado de aderência.
-- Impactos de uma distribuição inadequada na confiabilidade dos resultados.
-- Interpretação da não rejeição da hipótese nula.
-- Diferença entre ausência de evidências e comprovação de ausência de efeito.
-- Relação entre tamanho amostral e poder estatístico.
-
 ## 5.1. Cenário 1 — Vitória clara
-
-Apresenta um experimento em que a variante B possui uma taxa de conversão superior à variante A (20% vs. 22%).
+Experimento em que a variante B possui uma taxa de clique superior à variante A (20% vs. 22%).
+- Teste de hipóteses para comparação de proporções.
+- Interpretação do p-valor e do intervalo de confiança.
+- Significância estatística e significância prática.
 
 ## 5.2. Cenário 2 — Ausência de efeito
-
-Apresenta um experimento em que ambas as variantes possuem a mesma taxa de conversão esperada (20% vs. 20%).
+Experimento em que ambas as variantes possuem a mesma taxa de cliques esperada (20% vs. 20%).
+- Interpretação da não rejeição da hipótese nula.
+- Diferença entre ausência de evidências e comprovação de ausência de efeito.
+- Relação entre tamanho amostral, poder estatístico.
 
 ## 5.3. Cenário 3 — Sample Ratio Mismatch (SRM)
-
-Apresenta um experimento em que as variantes possuem taxas de conversão esperadas de 20% e 22%, mas a distribuição dos participantes ocorre na proporção de 55% para A e 45% para B, em vez da divisão esperada de 50/50.
-
+Apresenta um experimento em que as variantes possuem taxas de cliques esperadas de 20% e 22%, mas a distribuição dos participantes ocorre na proporção de 55% para A e 45% para B, em vez da divisão esperada de 50/50.
+- Conceito de incompatibilidade na proporção de participantes entre os grupos.
+- Aplicação do teste qui-quadrado de aderência.
+- Interpretação do resultado e impactos de uma distribuição inadequada na confiabilidade do experimento.
 
 # 6. Estrutura dos notebooks
 Cada notebook apresenta a análise individual de um dos cenários experimentais. Os fundamentos metodológicos e os parâmetros estatísticos são documentados neste README e não precisam ser reproduzidos integralmente em cada notebook.
