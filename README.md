@@ -67,22 +67,33 @@ O projeto contempla três cenários, cada um desenvolvido para demonstrar uma si
 | 3 | `cenario4-srm` | 20% vs. 22%, com divisão 55/45 | Demonstrar a identificação de Sample Ratio Mismatch (SRM). |
 
 ## 5.1. Cenário 1 — Vitória clara
-Experimento em que a variante B possui uma taxa de clique superior à variante A (20% vs. 22%).
+Foram realizadas as seguintes etapas:
 - Teste de hipóteses para comparação de proporções.
 - Interpretação do p-valor e do intervalo de confiança.
 - Significância estatística e significância prática.
 
+O resultado obtido foi que a **nova versão do botão apresentou uma CTR de 22,04%**, enquanto a **versão original registrou 20,21%**. Essa diferença representa um **aumento de 1,83 ponto percentual**, equivalente a uma **melhoria relativa de aproximadamente 9,05%** em favor da variante experimental. A análise estatística confirmou que a diferença é significativa, indicando **evidências de que a nova versão apresenta um desempenho superior.**
+
 ## 5.2. Cenário 2 — Ausência de efeito
-Experimento em que ambas as variantes possuem a mesma taxa de cliques esperada (20% vs. 20%).
+Neste cenário ambas as variantes possuem a mesma taxa de cliques esperada, foram realizadas as etapas:
 - Interpretação da não rejeição da hipótese nula.
 - Diferença entre ausência de evidências e comprovação de ausência de efeito.
 - Relação entre tamanho amostral, poder estatístico.
 
+O resulto obtido foi que a **nova versão apresentou uma CTR de 20,55%**, enquanto o **grupo de controle registrou 20,35%**. Embora tenha sido observada uma **diferença positiva de 0,20 ponto percentual**, equivalente a um **aumento relativo de aproximadamente 0,98%**, os resultados do teste estatístico foram:
+- Estatística Z: 0,28.
+- P-valor: 0,7774.
+- Nível de significância: 5%.
+
+Como o p-valor foi superior ao nível de significância estabelecido, **não rejeitamos a hipótese nula (H₀)**. Portanto, não encontramos evidências estatísticas suficientes para afirmar que existe uma diferença entre as taxas de cliques das variantes.
+
 ## 5.3. Cenário 3 — Sample Ratio Mismatch (SRM)
-Apresenta um experimento em que as variantes possuem taxas de cliques esperadas de 20% e 22%, mas a distribuição dos participantes ocorre na proporção de 55% para A e 45% para B, em vez da divisão esperada de 50/50.
+O terceiro cenário, demonstra que a distribuição dos participantes ocorre na proporção de 55% para A e 45% para B, em vez da divisão esperada de 50/50. Aqui foram analisadas:
 - Conceito de incompatibilidade na proporção de participantes entre os grupos.
 - Aplicação do teste qui-quadrado de aderência.
 - Interpretação do resultado e impactos de uma distribuição inadequada na confiabilidade do experimento.
+
+Foi identificado um Sample Ratio Mismatch (SRM), caracterizado por uma **divergência estatisticamente significativa entre a distribuição planejada dos participantes (50/50) e a distribuição observada (55/45)**. As análises complementares por dia e horário demonstraram que o desbalanceamento persistiu ao longo do experimento, não aparentando estar restrito a um período específico.
 
 # 6. Estrutura dos notebooks
 Cada notebook apresenta a análise individual de um dos cenários experimentais. Os fundamentos metodológicos e os parâmetros estatísticos são documentados neste README e não precisam ser reproduzidos integralmente em cada notebook.
